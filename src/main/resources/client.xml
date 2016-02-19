@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pylon="http://ele.me/schema/pylon"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd 
+	http://ele.me/schema/pylon http://ele.me/schema/pylon/spring-pylon.xsd">
+
+	<!-- alpha -->
+	<pylon:common registerUrl="soa-reg.alpha.elenet.me:8099"
+		configCenterUrl="soa-zk.alpha.elenet.me:2181"
+		auth="test_admin:MDJhMjFjMGM3" />
+	
+	<!-- dev -->
+	<!-- <pylon:common registerUrl="192.168.80.23:8099"
+		configCenterUrl="192.168.80.20:2181,192.168.80.21:2181,192.168.80.22:2181"
+		auth="test_admin:MDJhMjFjMGM3" />	 -->
+		
+
+	<pylon:client clientName="idgen" threadPoolSize="100"
+		timeoutInMillis="1000">
+		<pylon:interface id="idGenService" class="me.ele.idgen.client.IDGenService" />
+	</pylon:client>
+
+	<bean id="breakfastIdGenerator" class="me.ele.idgen.client.MemIDPool">
+		<constructor-arg name="configDomain" value="n11" />
+		<constructor-arg name="configKey" value="t11" />
+		<constructor-arg name="allocCount" value="50" />
+		<constructor-arg name="generator" ref="idGenService" />
+	</bean>
+	
+<!-- 	<import resource="classpath:me/ele/ipd/spring/applicationContext-import.xml" />
+	<bean id="redis_data_pool" factory-bean="redisPoolFactory"
+		factory-method="getClientProxy">
+		<constructor-arg value="data_pool" />
+	</bean>
+ --></beans>

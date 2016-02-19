@@ -1,0 +1,61 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>me.ele.idgen</groupId>
+	<artifactId>idgen-sample</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	<properties>
+		<spring_version>4.0.2.RELEASE</spring_version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>me.ele.idgen</groupId>
+			<artifactId>idgen-client</artifactId>
+			<version>1.0.2-RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>eleme-jarch</groupId>
+			<artifactId>pylon-spring</artifactId>
+			<version>1.2.24-RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.27</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>me.ele.ipd</groupId>
+			<artifactId>ipd-kernel</artifactId>
+			<version>1.0.3-SNAPSHOT</version>
+		</dependency>
+
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<mainClass>me.ele.idgen.sample.TestIdgen</mainClass>
+						</manifest>
+					</archive>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+				</configuration>
+				<executions>
+					<execution>
+						<id>make-assembly</id> <!-- this is used for inheritance merges -->
+						<phase>package</phase> <!-- 指定在打包节点执行jar包合并操作 -->
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>
