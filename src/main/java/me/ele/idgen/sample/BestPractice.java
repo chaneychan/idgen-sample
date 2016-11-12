@@ -1,8 +1,8 @@
 package me.ele.idgen.sample;
-import me.ele.idgen.client.MemIDPool;
-
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import me.ele.idgen.client.MemIDPool;
 
 /**
  * 当业务方每次通过borrow方法拿到id的时候，idgen并不知道业务方是否最终使用了此id，所以会存在如下两种情况：

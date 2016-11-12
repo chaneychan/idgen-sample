@@ -5,30 +5,22 @@
 	<artifactId>idgen-sample</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
-	<properties>
-		<spring_version>4.0.2.RELEASE</spring_version>
-	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>me.ele.idgen</groupId>
 			<artifactId>idgen-client</artifactId>
-			<version>1.0.2-RELEASE</version>
+			<version>1.0.5-RELEASE</version>
 		</dependency>
 		<dependency>
-			<groupId>eleme-jarch</groupId>
-			<artifactId>pylon-spring</artifactId>
-			<version>1.2.24-RELEASE</version>
-		</dependency>
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.27</version>
-		</dependency>
-		
-		<dependency>
-			<groupId>me.ele.ipd</groupId>
-			<artifactId>ipd-kernel</artifactId>
-			<version>1.0.3-SNAPSHOT</version>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>4.0.2.RELEASE</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>commons-logging</artifactId>
+					<groupId>commons-logging</groupId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 	</dependencies>

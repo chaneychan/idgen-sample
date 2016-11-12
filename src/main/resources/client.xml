@@ -3,32 +3,32 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pylon="http://ele.me/schema/pylon"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	
+
 	<bean id="dubboApplicationConfig" class="com.alibaba.dubbo.config.ApplicationConfig">
-        	<property name="name" value="idgen"/>
-    	</bean>
+		<property name="name" value="idgen" />
+	</bean>
 
-    	<bean id="dubboRegistryConfig" class="com.alibaba.dubbo.config.RegistryConfig">
-		<property name="address" value="zookeeper://10.0.128.129:2181"/>
-		<property name="protocol" value="zookeeper"/>
-    	</bean>
+	<bean id="dubboRegistryConfig" class="com.alibaba.dubbo.config.RegistryConfig">
+		<property name="address" value="zookeeper://10.0.128.129:2181" />
+		<property name="protocol" value="zookeeper" />
+	</bean>
 
-    	<bean id="dubboProtocolConfig" class="com.alibaba.dubbo.config.ProtocolConfig">
-        	<property name="port" value="30110"/>
-    	</bean>
-	
+	<bean id="dubboProtocolConfig" class="com.alibaba.dubbo.config.ProtocolConfig">
+		<property name="port" value="30110" />
+	</bean>
+
 	<bean id="idGenerator" class="me.ele.idgen.client.MemIDPool">
 		<constructor-arg name="configDomain" value="n11" />
 		<constructor-arg name="configKey" value="t11" />
 		<constructor-arg name="allocCount" value="50" />
-		<constructor-arg name="generator" ref="globalIdGenerator"/>
+		<constructor-arg name="generator" ref="globalIdGenerator" />
 	</bean>
-	
-    	<bean id="globalIdGenerator" class="com.alibaba.dubbo.config.spring.ReferenceBean">
-		<property name="interface" value="me.ele.idgen.client.IDGenService"/>
-		<property name="application" ref="dubboApplicationConfig"/>
-		<property name="registry" ref="dubboRegistryConfig"/>
-		<property name="version" value="LATEST"/>
-    	</bean>
-	
+
+	<bean id="globalIdGenerator" class="com.alibaba.dubbo.config.spring.ReferenceBean">
+		<property name="interface" value="me.ele.idgen.client.IDGenService" />
+		<property name="application" ref="dubboApplicationConfig" />
+		<property name="registry" ref="dubboRegistryConfig" />
+		<property name="version" value="LATEST" />
+	</bean>
+
 </beans>
