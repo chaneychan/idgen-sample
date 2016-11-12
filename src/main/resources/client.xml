@@ -17,7 +17,7 @@
 		<property name="port" value="30110" />
 	</bean>
 
-	<bean id="idGenerator" class="me.ele.idgen.client.MemIDPool">
+	<bean id="itemIdGenerator" class="me.ele.idgen.client.MemIDPool">
 		<constructor-arg name="configDomain" value="n11" />
 		<constructor-arg name="configKey" value="t11" />
 		<constructor-arg name="allocCount" value="50" />

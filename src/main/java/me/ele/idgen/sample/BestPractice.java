@@ -15,6 +15,9 @@ import me.ele.idgen.client.MemIDPool;
 public class BestPractice {
 	public static void main(String[] args) throws Exception {
 		ApplicationContext context = new ClassPathXmlApplicationContext("classpath:client.xml");
+		//实际项目中应该autowired 例如：
+		//@Autowired
+		//private IDPool itemIdGenerator;
 		MemIDPool idPool = context.getBean(MemIDPool.class);
 		String id = "";
 		boolean success = true;
